@@ -1,28 +1,20 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a demo site for Rodauth that runs on Rails, showing how you can use
+Rodauth in a Rails application.  It probably doesn't follow the Rails-way of
+doing things, as I don't know or care what that is, but it should hopefully
+at least provide an example of how it could be accomplished.
 
-Things you may want to cover:
+This demo site does not use Rodauth's full security features via multiple
+database accounts, though it will use database functions on databases where
+Rodauth supports that.  This also shows how to make Rodauth/Roda use Rails
+support for flash and CSRF protection, instead of the separate support that
+ships with Roda.
 
-* Ruby version
+To use:
 
-* System dependencies
+  # Migrate the database, adding tables for all features supported by Rodauth
+  sequel -m $(dirname $(dirname $(gem which rodauth.rb)))/spec/migrate_travis sqlite://db/rodauth-demo-rails.sqlite3
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+  # Run the app
+  DATABASE_URL=sqlite://db/rodauth-demo-rails.sqlite3 unicorn # or puma
