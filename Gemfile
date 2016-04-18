@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 gem 'rodauth', '>= 1.0.0'
 gem 'roda', '>= 2.13.0'
+gem 'roda-rails'
 gem 'tilt'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 #gem 'jbuilder', '~> 2.0'
